@@ -3,8 +3,15 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import babel from 'rollup-plugin-babel';
 
 const production = !process.env.ROLLUP_WATCH;
+
+console.log(
+`~~~~~~~~~~
+ENV: ${production ? 'PROD' : 'DEV'}
+~~~~~~~~~~`
+);
 
 export default {
   input: 'src/main.js',
@@ -25,6 +32,24 @@ export default {
       }
     }),
 
+    production && babel({
+      extensions: [ '.js', '.mjs', '.html', '.svelte' ],
+      plugins: [
+        // ['@babel/plugin-proposal-object-rest-spread', { 'loose': true, 'useBuiltIns': true }],
+        // 'babel-plugin-es6-promise',
+        // 'es6-promise',
+      ],
+      presets: [
+        ['@babel/preset-env', {
+          targets: {
+            ie: "10",
+          },
+          // useBuiltIns: 'usage',
+          // corejs: 3,
+        }],
+      ],
+    }),
+
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
     // some cases you'll need additional configuration —
@@ -42,6 +67,6 @@ export default {
     production && terser()
   ],
   watch: {
-    clearScreen: false
+    clearScreen: true
   }
 };

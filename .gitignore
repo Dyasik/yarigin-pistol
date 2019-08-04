@@ -1,3 +1,5 @@
 node_modules
 public/bundle.*
 /.idea/
+/public/photo/*
+/public/video/*
