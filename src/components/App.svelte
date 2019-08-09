@@ -9,7 +9,6 @@
   let activeUnit;
   let activeSubUnit;
 
-  let contentDiv;
 
   function activateTab(tab) {
     activeTab = tab;
@@ -65,17 +64,7 @@
   }
 
   function scrollToTop() {
-    if (!contentDiv) {
-      const _contentDivs = document.getElementsByClassName('content');
-
-      if (!_contentDivs.length) {
-        return;
-      }
-
-      contentDiv = _contentDivs[0];
-    }
-
-    contentDiv.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
   activateTab(structure[0]);
@@ -84,17 +73,7 @@
 <style>
     .content {
         width: 100%;
-        height: calc(100% - 90px);
-        position: fixed;
-        top: 90px;
         padding-top: 15px;
-        overflow: auto;
-    }
-
-    .main {
-        padding: 0 4px;
-        margin-left: 200px;
-        text-align: justify;
     }
 </style>
 
@@ -105,7 +84,7 @@
 />
 
 <div class="content">
-    <div class="container d-flex" style="height: 100%;">
+    <div class="container d-flex">
         <Sidebar
             units={activeTab.units}
             activeUnit={activeUnit}
@@ -116,6 +95,7 @@
 
         <Content
             structure={structure}
+            activeTab={activeTab}
             activeUnit={activeUnit}
             activeSubUnit={activeSubUnit}
             on:selectUnit="{ e => activateUnit(e.detail.unit) }"

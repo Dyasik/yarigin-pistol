@@ -5,18 +5,13 @@ html, body {
 }
 
 @font-face {
-  font-family: "GOSTUI-Medium";
-  src: url(./fonts/GOSTUI2-Medium.woff) format("woff");
+  font-family: "SegoeUI";
+  src: url(./fonts/SegoeUI.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "GOSTUI";
-  src: url(./fonts/GOSTUI2.woff) format("woff");
-}
-
-@font-face {
-  font-family: "GOSTUI-Bold";
-  src: url(./fonts/GOSTUI2-Bold.woff) format("woff");
+  font-family: "SegoeUIBold";
+  src: url("./fonts/Segoe UI Bold.ttf") format("truetype");
 }
 
 body {

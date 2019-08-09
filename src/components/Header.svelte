@@ -11,32 +11,31 @@
         tab,
       });
     }
-
-    function handleKeydown(event, tab) {
-      if (event.which === 13) {
-        selectTab(tab);
-      }
-    }
 </script>
 
 <style>
     nav {
-        background-color: #000;
-        color: #fff;
-        font-family: GOSTUI-Medium, sans-serif;
-        font-size: 14px;
+        background-color: #FFF;
+        border-bottom: 2px solid #EBEBEB;;
     }
 
-    .super-header {
-        height: 40px;
-        font-size: 20px;
-        text-align: center;
+    .logo-1 {
+        padding-bottom: 5px;
+    }
+
+    .logo-2 {
+        margin: 0 20px 0 10px;
     }
 
     .tab {
-        height: 50px;
-        flex-basis: 25%;
-        padding: 0 6px;
+        height: 80px;
+        flex-basis: 20%;
+        font-family: "Open Sans", sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        text-transform: uppercase;
+        padding: 0 10px;
         cursor: pointer;
         position: relative;
         display: flex;
@@ -44,35 +43,71 @@
         align-items: center;
     }
 
-    .tab:focus,
-    .tab:active,
     .tab:hover {
-        outline: none;
-        background-color: #222;
+        background-color: #F6F6F6;
     }
 
-    .tab.tab-active::after {
-        content: '';
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: #eb0029;
+    .tab.tab-active {
+        color: #EF2045;
+    }
+
+    .tab__name {
+        flex-basis: 60%;
+    }
+
+
+    .banner {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        color: #FFF;
+        padding-bottom: 70px;
+        display: flex;
+        align-items: center;
+    }
+
+    .banner > .container {
+        max-width: 60%;
+    }
+
+    .banner__title {
+        font-family: "SegoeUIBold", sans-serif;
+        font-size: 40px;
+        line-height: 54px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .banner__body {
+        font-family: "Segoe UI", SegoeUI, sans-serif;
+        font-size: 16px;
+        line-height: 21px;
     }
 </style>
 
 <nav>
-    <div class="super-header">ПИСТОЛЕТ ЯРЫГИНА ПЯ</div>
     <div class="container d-flex align-items-center-1">
-    {#each tabs as tab (tab.title)}
-        <span class="tab { tab.title === activeTab.title ? 'tab-active' : '' }"
-            tabindex="0"
-            on:click="{ e => selectTab(tab) }"
-            on:keydown="{ e => handleKeydown(e, tab) }">
-            { tab.title }
-        </span>
-    {/each}
+        <div class="d-flex">
+            <img class="logo-1" src="./logo/logo-1.svg" alt=""/>
+            <img class="logo-2" src="./logo/logo-2.svg" alt=""/>
+        </div>
+
+        {#each tabs as tab (tab.title)}
+        <div class="tab { tab === activeTab ? 'tab-active' : '' }"
+            on:click="{ e => selectTab(tab) }">
+            <span class="tab__name">{ tab.title }</span>
+        </div>
+        {/each}
     </div>
 </nav>
+
+<div class="banner" style="background-image:url(./banners/{activeTab.banner.image});">
+    <div class="container">
+        <div class="banner__title">
+            {@html activeTab.banner.title }
+        </div>
+        <div class="banner__body">
+            { activeTab.banner.body }
+        </div>
+    </div>
+</div>
