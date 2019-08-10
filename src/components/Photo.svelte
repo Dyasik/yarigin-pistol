@@ -14,7 +14,7 @@
 <style>
   img {
     max-width: 80%;
-    min-height: 90vh;
+    max-height: 90vh;
     cursor: pointer;
   }
 
