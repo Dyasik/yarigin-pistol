@@ -173,9 +173,11 @@ export default [
 
   {
     title: 'О проекте',
-    units: [],
+    units: [{}],
     banner: {
-      image: 'banner-5.jpg',
+      image: 'banner-5.png',
+      title: '',
+      body: '',
     },
   },
 ];

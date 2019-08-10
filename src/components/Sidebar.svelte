@@ -52,7 +52,7 @@
     {#each units as unit (unit.title)}
         <div class="unit { (unit === activeUnit && (!activeSubUnit || !activeSubUnit.title)) ? 'unit-active' : '' }"
             on:click="{ e => selectUnit(unit) }">
-            { unit.title }
+            { unit.title || '' }
         </div>
         {#if unit.subUnits }
             {#each unit.subUnits as subUnit (subUnit.title)}
