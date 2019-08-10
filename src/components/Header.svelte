@@ -86,7 +86,7 @@
 </style>
 
 <nav>
-    <div class="container d-flex align-items-center-1">
+    <div class="container d-flex align-items-center">
         <div class="d-flex">
             <img class="logo-1" src="./logo/logo-1.svg" alt=""/>
             <img class="logo-2" src="./logo/logo-2.svg" alt=""/>

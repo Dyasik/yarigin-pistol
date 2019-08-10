@@ -65,6 +65,8 @@
 
   function scrollToTop() {
     document.documentElement.scrollTop = 0;
+    // For Safari 🙄
+    document.body.scrollTop = 0;
   }
 
   activateTab(structure[0]);

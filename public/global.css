@@ -23,6 +23,8 @@ body {
 
 table {
   border-collapse: collapse;
+  letter-spacing: -0.25px;
+  font-size: 14px;
 }
 
 th, td {
