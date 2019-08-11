@@ -1,9 +1,9 @@
 <script>
-  export let filenames = [];
+  export let filename = '';
   export let caption = '';
 
   const videosDir = 'video';
-  const sources = filenames.map(fn => `./${videosDir}/${fn}`);
+  const source = `./${videosDir}/${filename}`;
 </script>
 
 <style>
@@ -18,15 +18,13 @@
 
 <figure>
     <video controls="controls">
-        {#each sources as src}
-            <source src={src}>
-        {/each}
+        <source src={source}>
     </video>
     <figcaption>
         {caption}
         <br/>
         <div class="disclaimer">
-            Если видео не воспроизводится в браузере, его можно найти в папке {videosDir} с названием "{filenames[0]}".
+            Если видео не воспроизводится в браузере, его можно найти в папке {videosDir} с названием "{filename}".
         </div>
     </figcaption>
 </figure>

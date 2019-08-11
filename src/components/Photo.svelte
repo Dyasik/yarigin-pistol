@@ -3,8 +3,20 @@
   export let caption = '';
   export let isCaptionOnRight = false;
   export let isCustomCaption = false;
+  export let maxWidth = '';
+  export let maxHeight = '';
 
   let fullScreen = false;
+
+  let imgStyle = '';
+
+  if (maxWidth) {
+    imgStyle += `max-width: ${maxWidth};`;
+  }
+
+  if (maxHeight) {
+    imgStyle += `max-height: ${maxHeight};`;
+  }
 
   function toggleFullscreen() {
     fullScreen = !fullScreen;
@@ -60,6 +72,7 @@
     src="./photo/{filename}"
     alt={caption}
     on:click={ e => toggleFullscreen() }
+    style={imgStyle}
   />
 
   {#if fullScreen}
