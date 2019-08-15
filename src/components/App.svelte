@@ -76,6 +76,7 @@
     .content {
         width: 100%;
         padding-top: 15px;
+        background: url("./banners/pattern.jpg") repeat;
     }
 </style>
 

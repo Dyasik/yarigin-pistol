@@ -83,6 +83,10 @@
         font-size: 16px;
         line-height: 21px;
     }
+
+    .banner.yarigin .banner__body {
+        max-width: 680px;
+    }
 </style>
 
 <nav>
@@ -101,7 +105,9 @@
     </div>
 </nav>
 
-<div class="banner" style="background-image:url(./banners/{activeTab.banner.image});">
+<div class="banner { activeTab === tabs[3] ? 'yarigin' : '' }"
+     style="background-image:url(./banners/{activeTab.banner.image});"
+>
     <div class="container">
         <div class="banner__title">
             {@html activeTab.banner.title }
