@@ -16,7 +16,10 @@
 <style>
     nav {
         background-color: #FFF;
-        border-bottom: 2px solid #EBEBEB;;
+        border-bottom: 2px solid #EBEBEB;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
     }
 
     .logo-1 {
@@ -55,6 +58,10 @@
         flex-basis: 60%;
     }
 
+    .nav-stub {
+        height: 80px;
+        width: 100%;
+    }
 
     .banner {
         height: 400px;
@@ -85,7 +92,7 @@
     }
 
     .banner.yarigin .banner__body {
-        max-width: 680px;
+        max-width: 660px;
     }
 </style>
 
@@ -104,6 +111,10 @@
         {/each}
     </div>
 </nav>
+
+<div class="nav-stub">
+    &nbsp;
+</div>
 
 <div class="banner { activeTab === tabs[3] ? 'yarigin' : '' }"
      style="background-image:url(./banners/{activeTab.banner.image});"

@@ -1,0 +1,5 @@
+[autorun]
+
+shellexecute=index.html
+icon=icon.ico
+label="Пистолет Ярыгина"

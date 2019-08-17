@@ -26,7 +26,7 @@
 <style>
   img {
     max-width: 80%;
-    max-height: 90vh;
+    max-height: calc(85vh - 80px); /* consider fixed nav header */
     cursor: pointer;
   }
 
