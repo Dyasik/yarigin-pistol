@@ -2,12 +2,15 @@
   import Header from './Header.svelte';
   import Sidebar from './Sidebar.svelte';
   import Content from './Content.svelte';
+  import Video from './Video.svelte';
+  import Intro from './Intro.svelte';
 
   import structure from '../structure';
 
   let activeTab;
   let activeUnit;
   let activeSubUnit;
+  let showIntro = true;
 
 
   function activateTab(tab) {
@@ -80,6 +83,13 @@
     }
 </style>
 
+
+{#if showIntro}
+<Intro
+    on:introEnd="{ e => showIntro = false }"
+/>
+{:else}
+
 <Header
     tabs={structure}
     activeTab={activeTab}
@@ -107,3 +117,5 @@
         />
     </div>
 </div>
+
+{/if}
