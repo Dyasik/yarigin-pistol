@@ -59,11 +59,12 @@
         padding: 5px 8px;
         border: 1px solid;
         cursor: pointer;
+        z-index: 3;
     }
 
     .intro :global(video) {
         /* consider "end this" button */
-        max-height: calc(100% - 90px);
+        max-height: calc(100vh - 100px);
     }
 
     .intro :global(figure) {
