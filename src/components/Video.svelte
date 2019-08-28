@@ -3,6 +3,7 @@
 
   export let filename = '';
   export let caption = '';
+  export let isCaptionCustom = false;
   export let showCaption = true;
   export let controls = true;
   export let autoplay = false;
@@ -48,7 +49,11 @@
     </video>
     {#if showCaption}
     <figcaption>
-        {caption}
+        {#if isCaptionCustom}
+            <slot></slot>
+        {:else}
+            {caption}
+        {/if}
         <br/>
         <div class="disclaimer">
             Если видео не воспроизводится в браузере, его можно найти в папке {videosDir} с названием "{filename}".
