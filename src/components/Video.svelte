@@ -10,7 +10,6 @@
   export let endCallback;
 
   const videosDir = 'video';
-  const source = `./${videosDir}/${filename}`;
 
   let videoRef;
 
@@ -45,7 +44,9 @@
         controls="{ controls && 'controls' }"
         on:ended={endCallback ? endCallback : ()=>{}}
     >
-        <source src={source}>
+        <source src={`./${videosDir}/${filename}.mp4`}>
+        <source src={`./${videosDir}/${filename}.webm`}>
+        <source src={`./${videosDir}/${filename}.ogg`}>
     </video>
     {#if showCaption}
     <figcaption>

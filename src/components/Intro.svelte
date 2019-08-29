@@ -88,9 +88,12 @@
 
     <figure>
         <video
-            src="./logo/intro.mp4"
             bind:this={videoRef}
             on:ended={closeIntro}
-        ></video>
+        >
+            <source src="./logo/intro.mp4">
+            <source src="./logo/intro.webm">
+            <source src="./logo/intro.ogg">
+        </video>
     </figure>
 </div>
