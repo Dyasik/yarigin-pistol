@@ -1,4 +1,6 @@
 <script>
+  import { onMount, onDestroy } from 'svelte';
+
   import Header from './Header.svelte';
   import Sidebar from './Sidebar.svelte';
   import Content from './Content.svelte';
@@ -11,6 +13,7 @@
   let activeUnit;
   let activeSubUnit;
   let showIntro = true;
+  let showUp = false;
 
 
   function activateTab(tab) {
@@ -66,9 +69,20 @@
     activeSubUnit = subUnit;
   }
 
+  function checkShowUp() {
+    showUp = document.documentElement.scrollTop >= 350;
+  }
+
+  onMount(function() {
+    window.addEventListener('scroll', checkShowUp);
+  });
+
+  onDestroy(function() {
+    window.removeEventListener('scroll', checkShowUp);
+  });
+
   function scrollToTop() {
     document.documentElement.scrollTop = 0;
-    // For Safari 🙄
     document.body.scrollTop = 0;
   }
 
@@ -80,6 +94,26 @@
         width: 100%;
         padding-top: 15px;
         background: url("./banners/pattern.jpg") repeat;
+    }
+
+    .up-wrap {
+        position: fixed;
+        width: 100vw;
+        left: 0;
+        bottom: 70px;
+    }
+
+    .up {
+        width: 200px;
+        height: 50px;
+        border: 1px solid #efefef;
+        background-color: #fff;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .up:hover {
+        background-color: #fafafa;
     }
 </style>
 
@@ -115,6 +149,17 @@
             on:selectSubUnit="{ e => activateSubUnit(e.detail.subUnit) }"
             on:selectTab="{ e => activateTab(e.detail.tab) }"
         />
+
+        {#if showUp}
+        <div class="up-wrap">
+            <div class="container">
+                <div class="up d-inline-flex justify-content-center align-items-center"
+                     on:click={ scrollToTop }>
+                    ВВЕРХ
+                </div>
+            </div>
+        </div>
+        {/if}
     </div>
 </div>
 
