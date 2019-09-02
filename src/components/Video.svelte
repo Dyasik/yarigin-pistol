@@ -44,9 +44,9 @@
         controls="{ controls && 'controls' }"
         on:ended={endCallback ? endCallback : ()=>{}}
     >
-        <source src={`./${videosDir}/${filename}.mp4`}>
-        <source src={`./${videosDir}/${filename}.webm`}>
-        <source src={`./${videosDir}/${filename}.ogg`}>
+        <source src={`./${videosDir}/${filename}.mp4`} type='video/mp4'>
+        <source src={`./${videosDir}/${filename}.webm`} type='video/webm; codecs="vp8, vorbis"'>
+        <source src={`./${videosDir}/${filename}.ogg`} type='video/ogg; codecs="theora, vorbis"'>
     </video>
     {#if showCaption}
     <figcaption>
